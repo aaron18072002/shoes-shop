@@ -2,26 +2,171 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer components {
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+
+    input[type='radio']:checked {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    input:focus {
+        outline: none !important;
+        border-color: #000;
+    }
+
+    .d-hidden {
+        display: none !important;
+    }
+
+    .pointer {
+        cursor: pointer !important;
+    }
+
+    .w-80 {
+        width: 80% !important;
+    }
+
+    .padding-left-0 {
+        padding-left: 0 !important;
+    }
+
+    .input-icon {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+
+    .card_product {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card_product:hover .action_bar {
+        /* right: 14px; */
+        bottom: 6%;
+    }
+
+    .action_bar {
+        position: absolute;
+        /* top: 5%; */
+        /* right: -30px; */
+        bottom: -40%;
+        transition: all 0.3s;
+    }
+
+    .nav_links ul li a::after {
+        content: '';
+        width: 0%;
+        height: 2px;
+        background-color: #475569;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+    }
+
+    .nav_links ul li a:hover::after {
+        width: 100%;
+    }
+    /* .custom-radio {
+        
+    } */
+
+    .icon_checked {
+        display: none;
+    }
+
+    .custom-radio > div {
+        background-color: white;
+        box-shadow: 0 0 0 5px white;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #4b5563;
+    }
+
+    .custom-radio input:checked + div {
+        @apply bg-gray-300;
+        /* box-shadow: 0 0 0 2.5px white, 0 0 0 5px rgb(59 130 246 / var(--tw-bg-opacity)); */
+        background-color: #eee;
+    }
+
+    .custom-radio input:checked + div > .icon_checked {
+        display: block;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* @media (max-width: 768px) {
+        .action_bar {
+            position: absolute;
+            top: 0;
+            right: -25px;
+            transition: all 0.3s;
+        }
+    } */
+    @media (max-width: 640px) {
+        .card_product:hover .action_bar {
+            /* right: 18px; */
+            bottom: 4%;
+        }
+
+        .action_bar {
+            /* top: 5%; */
+            bottom: -45%;
+        }
+    }
+
+    .box_order:last-child {
+        border-bottom: 0px;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.swiper {
+    width: 100%;
+    height: 100%;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.swiper-slide {
+    /* text-align: center; */
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.swiper {
+    width: 100%;
+    height: 380px;
+    margin: 20px auto;
+}
+
+@media (max-width: 640px) {
+    .swiper {
+        height: 300px;
+    }
+}
+
+.swiper-wrapper {
+    width: 100%;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+    color: #000;
+    font-weight: bold;
+    font-size: 28px !important;
 }
