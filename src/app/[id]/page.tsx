@@ -14,14 +14,14 @@ import { toast } from 'react-toastify';
 import { upperFirstOfEachWord } from '@/utils/upperFirstOfEachWord';
 // import { useQuery } from '@tanstack/react-query';
 import { getProductById, getMenProductsByOption } from '@/apis/products.api';
-import { Product, ProductType } from '@/types/products.type';
+import { ProductType } from '@/types/products.type';
 import formatParagraph from '@/utils/formatParagraph';
 import { addToFavourite } from '@/redux/slices/favouriteSlice';
 import Modal from '@/components/Modal';
 import Image from 'next/image';
 import Slider from '@/components/Slider';
 import { FaMinus, FaPlus } from 'react-icons/fa';
-import { GoDotFill } from 'react-icons/go';
+
 import Link from 'next/link';
 
 interface SizeObj {
@@ -153,6 +153,7 @@ const ProductDetailPage = ({
         '/images/products/nike_air_zoom_pegasus_35/d_5.png',
         '/images/products/nike_air_zoom_pegasus_35/d_6.png',
     ]);
+    const [sizesProduct, setSizesProduct] = useState<number[]>([1]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [showDesc, setShowDesc] = useState<boolean>(false);
     const [showHelper, setShowHelper] = useState<boolean>(false);
@@ -170,7 +171,6 @@ const ProductDetailPage = ({
     const getProduct = useCallback(async () => {
         const { data } = await getProductById(id);
         setProductData(data?.data);
-
         const sameCategoryProductsRes = await getMenProductsByOption(
             1,
             12,
@@ -179,7 +179,15 @@ const ProductDetailPage = ({
         setSameCategoryProducts(sameCategoryProductsRes?.data?.data);
         setImageUrls(data?.data?.images);
         setImage(data?.data?.images[0]);
+        setSizesProduct(data?.data?.sizes);
     }, [id]);
+
+    console.log('size product', sizesProduct);
+    console.log(
+        'sizes',
+        sizes.map((value) => value.size),
+    );
+    console.log(sizesProduct.includes(42));
 
     useEffect(() => {
         setIsLoading(true);
@@ -255,8 +263,6 @@ const ProductDetailPage = ({
     const handleGenderSizeChange = (e: any) => {
         setGenderSize(e.target.value);
     };
-
-    console.log(productData.description.split('.'));
 
     return (
         <Fragment>
@@ -383,21 +389,35 @@ const ProductDetailPage = ({
                             <div className="grid grid-cols-3 max-sm:grid-cols-2 gap-2">
                                 {sizes &&
                                     sizes.length > 0 &&
-                                    sizes.map((item) => {
-                                        return (
-                                            <input
-                                                onClick={handleSelectSize}
-                                                key={item.id}
-                                                type="text"
-                                                id={item.size}
-                                                name={item.size}
-                                                defaultValue={item.size}
-                                                readOnly={true}
-                                                className="px-6 py-4  cursor-pointer flex items-center justify-center rounded-md border border-gray-300 hover:border-gray-600 text-center"
-                                                placeholder={item.size}
-                                            />
-                                        );
-                                    })}
+                                    sizes
+                                        .map((value) => value.size)
+                                        .map((item, index) => {
+                                            return sizesProduct.includes(Number(item)) ? (
+                                                <input
+                                                    onClick={handleSelectSize}
+                                                    key={index}
+                                                    type="text"
+                                                    id={item}
+                                                    name={item}
+                                                    defaultValue={item}
+                                                    readOnly={true}
+                                                    className="px-6 py-4 cursor-pointer flex items-center justify-center rounded-md border border-gray-300 hover:border-gray-600 text-center"
+                                                    placeholder={item}
+                                                />
+                                            ) : (
+                                                <div
+                                                    onClick={() => {
+                                                        toast.warning('Hiện tại đã hết size này');
+                                                    }}
+                                                    key={index}
+                                                    id={item}
+                                                    className="px-6 py-4 sold_out cursor-not-allowed opacity-50 flex items-center justify-center rounded-md border border-gray-300 hover:border-gray-600 text-center"
+                                                    placeholder={item}
+                                                >
+                                                    {item}
+                                                </div>
+                                            );
+                                        })}
                             </div>
                         </div>
                         <div className="mt-5 flex flex-col gap-4">
