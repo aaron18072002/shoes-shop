@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Link from 'next/link';
 import { jwtDecode } from 'jwt-decode';
+import overlayImage from '../../assets/images/overlay.jpg';
 
 import { AiOutlineHome } from 'react-icons/ai';
 import InputHook from '@/components/InputHook';
@@ -144,7 +145,7 @@ const SignInPage: React.FC = (props: SignInPageProps) => {
         }
         if (mutation.isError) {
             console.log(mutation);
-
+            mutation.reset();
             toast.error('Mật khẩu hoặc email không hợp lệ');
             return;
         }
@@ -168,7 +169,7 @@ const SignInPage: React.FC = (props: SignInPageProps) => {
     return (
         <div className="w-full h-[100vh] overflow-y-hidden relative">
             <Image
-                src="/images/overlay.jpg"
+                src={overlayImage}
                 alt="banner"
                 width="0"
                 height="0"

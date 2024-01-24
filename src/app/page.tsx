@@ -34,7 +34,8 @@ type UserDecodedType = {
 
 export default function Home() {
     const axiosInstance = axios.create({
-        baseURL: 'http://localhost:3000/',
+        baseURL: 'https://shoes-shop-1xyxzm3w2-aaron18072002s-projects.vercel.app/',
+        // baseURL: 'http://localhost:3000/',
         timeout: 5000,
         headers: {
             Authorization: localStorage.getItem('access_token')

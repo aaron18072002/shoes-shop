@@ -7,6 +7,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import overlayImage from '../../assets/images/overlay.jpg';
 
 import { AiOutlineHome } from 'react-icons/ai';
 import InputHook from '@/components/InputHook';
@@ -147,7 +148,7 @@ const SignUpPage: React.FC = (props: SignUpPageProps) => {
     return (
         <div className="w-full h-[100vh] overflow-y-hidden relative">
             <Image
-                src="/images/overlay.jpg"
+                src={overlayImage}
                 alt="banner"
                 width="0"
                 height="0"

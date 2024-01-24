@@ -87,7 +87,8 @@ const Navbar: React.FC = (props: NavbarProps) => {
                             className="relative cursor-pointer transition-all"
                         >
                             <Image
-                                src={userInfo.avatar_img}
+                                // src={userInfo.avatar_img}
+                                src={`${MEDIA_IMAGE_PATH}${userInfo.avatar_img}`}
                                 alt="avatar user"
                                 width={38}
                                 height={38}

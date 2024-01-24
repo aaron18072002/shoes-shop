@@ -1,3 +1,4 @@
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 import { removeItem } from '@/redux/slices/favouriteSlice';
 import { convertPriceToStringVNDWithD } from '@/utils/convertPrice';
 import Image from 'next/image';
@@ -35,7 +36,8 @@ const FavouriteCard: React.FC<FavouriteCardProps> = (props: FavouriteCardProps) 
                 <Image
                     width={0}
                     height={0}
-                    src={props.image}
+                    // src={props.image}
+                    src={`${MEDIA_IMAGE_PATH}${props.image}`}
                     sizes="100vw"
                     alt="product_card"
                     className="object-cover w-[85%] h-[180px] max-sm:w-[85%] max-sm:h-[85px]"
