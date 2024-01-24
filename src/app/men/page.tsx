@@ -20,6 +20,7 @@ import { ProductType } from '@/types/products.type';
 import ProductsLoadingSkeleton from '@/components/ProductsLoadingSkeleton';
 import Link from 'next/link';
 import { upperFirstOfEachWord } from '@/utils/upperFirstOfEachWord';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 
 interface MenPageProps {}
 
@@ -108,7 +109,8 @@ const MenPage: React.FC<MenPageProps> = (props: MenPageProps) => {
                             height={0}
                             sizes="100vh"
                             alt="banner"
-                            src="/images/banner_img.png"
+                            // src="/images/banner_img.png"
+                            src={`${MEDIA_IMAGE_PATH}50c2278c3a4bd59e045565100`}
                             className="h-full w-full object-cover"
                         />
                     </div>
@@ -125,7 +127,8 @@ const MenPage: React.FC<MenPageProps> = (props: MenPageProps) => {
                                     <Image
                                         width="14"
                                         height="14"
-                                        src="/images/filter.png"
+                                        // src="/images/filter.png"
+                                        src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059936`}
                                         alt="filter"
                                         className="font-bold"
                                     />

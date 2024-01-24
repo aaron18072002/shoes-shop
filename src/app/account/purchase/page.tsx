@@ -17,6 +17,7 @@ import { getSalesItemsByOrderId } from '@/apis/salesItems.api';
 import { getProductById } from '@/apis/products.api';
 import convertTimestampToLocalDate from '@/utils/convertTimestampToLocalDate';
 import { PiAddressBookBold } from 'react-icons/pi';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 
 interface PurchasePageProps {}
 
@@ -208,7 +209,8 @@ const PurchasePage: React.FC<PurchasePageProps> = (props: PurchasePageProps) => 
                                                 height={0}
                                                 sizes="100vw"
                                                 alt="product_img"
-                                                src={'/images/chuacodonhang.png'}
+                                                // src={'/images/chuacodonhang.png'}
+                                                src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059931`}
                                                 className="object-cover w-[100px] h-[100px] max-sm:w-[60px] max-sm:h-[60px]"
                                             />
                                             <h4>Chưa có đơn hàng</h4>

@@ -22,6 +22,7 @@ import { createOrder } from '@/apis/orders.api';
 import { createSalesItem } from '@/apis/salesItems.api';
 import { clearCart } from '@/redux/slices/cartSlice';
 import { useRouter } from 'next/navigation';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 
 interface CheckoutPageProps {}
 
@@ -435,7 +436,8 @@ const CheckoutPage: React.FC<CheckoutPageProps> = (props: CheckoutPageProps) => 
                                                     height={0}
                                                     sizes="100vw"
                                                     alt="paypal-icom"
-                                                    src={'/images/paypal.png'}
+                                                    // src={'/images/paypal.png'}
+                                                    src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059932`}
                                                     className="w-[18px] h-[18px] object-cover"
                                                 />
                                             </span>
@@ -455,7 +457,8 @@ const CheckoutPage: React.FC<CheckoutPageProps> = (props: CheckoutPageProps) => 
                                                     height={0}
                                                     sizes="100vw"
                                                     alt="paypal-icom"
-                                                    src={'/images/momo.webp'}
+                                                    // src={'/images/momo.webp'}
+                                                    src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059934`}
                                                     className="w-[18px] h-[18px] object-cover"
                                                 />
                                             </span>

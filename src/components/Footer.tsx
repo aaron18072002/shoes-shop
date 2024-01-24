@@ -8,6 +8,7 @@ import React from 'react';
 // import { FaLocationDot } from 'react-icons/fa6';
 import { MdOutlineMail } from 'react-icons/md';
 import Image from 'next/image';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 
 interface FooterProps {}
 
@@ -20,7 +21,8 @@ const Footer: React.FC<FooterProps> = (props: FooterProps) => {
                         Contact us
                     </h3>
                     <Image
-                        src={'/images/send_email.png'}
+                        // src={'/images/send_email.png'}
+                        src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059939`}
                         width={0}
                         height={0}
                         alt="send_email"

@@ -23,6 +23,7 @@ import Slider from '@/components/Slider';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 
 import Link from 'next/link';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 
 interface SizeObj {
     id: number;
@@ -102,12 +103,12 @@ const initialProductData = {
     description: '',
     gender_type: '',
     images: [
-        '/images/products/nike_air_zoom_pegasus_35/d_1.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_2.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_3.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_4.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_5.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_6.png',
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
     ],
     name: '',
     price: 0,
@@ -146,12 +147,12 @@ const ProductDetailPage = ({
     // const [status, setStatus] = useState<string>('Còn hàng');
     const [quantity, setQuantity] = useState<number>(0);
     const [imageUrls, setImageUrls] = useState<string[]>([
-        '/images/products/nike_air_zoom_pegasus_35/d_1.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_2.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_3.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_4.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_5.png',
-        '/images/products/nike_air_zoom_pegasus_35/d_6.png',
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
+        `${MEDIA_IMAGE_PATH}402998bf2e51162aa42681faf`,
     ]);
     const [sizesProduct, setSizesProduct] = useState<number[]>([1]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -521,7 +522,7 @@ const ProductDetailPage = ({
                                     height={0}
                                     width={0}
                                     sizes="100vw"
-                                    src={'/images/men_shoe_size.png'}
+                                    src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f03805992f`}
                                     className="object-cover w-full h-[600px] max-sm:h-[400px]"
                                 />
                             )}
@@ -531,7 +532,7 @@ const ProductDetailPage = ({
                                     height={0}
                                     width={0}
                                     sizes="100vw"
-                                    src={'/images/women_shoe_size.png'}
+                                    src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059930`}
                                     className="object-cover w-full h-[600px] max-sm:h-[400px]"
                                 />
                             )}

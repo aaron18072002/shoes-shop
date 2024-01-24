@@ -3,6 +3,7 @@
 import { getCustomerByUserId, updateCustomerByUserId } from '@/apis/customers.api';
 import InputHook from '@/components/InputHook';
 import Navbar from '@/components/Navbar';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 import { formatSecretInfo } from '@/utils/formatSecretInfo';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation } from '@tanstack/react-query';
@@ -156,7 +157,7 @@ const CustomerPage: React.FC<CustomerPageProps> = (props: CustomerPageProps) => 
                                             height={0}
                                             sizes="100vw"
                                             alt="product_img"
-                                            src={'/images/chuacodonhang.png'}
+                                            src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059931`}
                                             className="object-cover w-[100px] h-[100px] max-sm:w-[60px] max-sm:h-[60px]"
                                         />
                                         <h4>Bạn chưa đặt đơn hàng nào</h4>

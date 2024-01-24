@@ -17,6 +17,7 @@ import { useDispatch } from 'react-redux';
 import { updateUser } from '@/redux/slices/userSlice';
 import { toast } from 'react-toastify';
 import InputPasswordToggle from '@/components/InputPasswordToggle';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 
 interface SignInPageProps {}
 
@@ -270,7 +271,8 @@ const SignInPage: React.FC = (props: SignInPageProps) => {
                             <Image
                                 width={32}
                                 height={32}
-                                src="/images/google.png"
+                                // src="/images/google.png"
+                                src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059937`}
                                 alt="google_logo"
                                 className="object-cover"
                             />
@@ -280,7 +282,8 @@ const SignInPage: React.FC = (props: SignInPageProps) => {
                             <Image
                                 width={28}
                                 height={28}
-                                src="/images/facebook.png"
+                                // src="/images/facebook.png"
+                                src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f038059938`}
                                 alt="google_logo"
                                 className="object-cover"
                             />

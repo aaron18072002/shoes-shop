@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar';
 import ProductCard from '@/components/ProductCard';
 import Footer from '@/components/Footer';
 import { useQuery } from '@tanstack/react-query';
-import { getMenProductsByOption, getProductsByOption } from '@/apis/products.api';
+import { getProductsByOption } from '@/apis/products.api';
 import { ProductType } from '@/types/products.type';
 import { getNewAccessToken, getUserById } from '@/apis/users.api';
 import { resetUser, updateUser } from '@/redux/slices/userSlice';
@@ -55,10 +55,12 @@ export default function Home() {
 
     const { data, isLoading } = useQuery({
         queryKey: ['getProducts', PAGE, PAGE_SIZE],
-        queryFn: async () => await getMenProductsByOption(PAGE, PAGE_SIZE, 'original'),
+        queryFn: async () => await getProductsByOption(PAGE_SIZE, 'adidas'),
     });
 
     const productsData = data?.data?.data;
+
+    console.log(productsData);
 
     // const isSticky = useCallback(() => {
     //     const scrollTop = window.scrollY;

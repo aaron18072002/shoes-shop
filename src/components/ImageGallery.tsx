@@ -1,5 +1,6 @@
 'use client';
 
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 import Image from 'next/image';
 import React, { useState, memo } from 'react';
 import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
@@ -36,7 +37,8 @@ const ImageGallery: React.FC<ImageGalleryProps> = (props: ImageGalleryProps) => 
                             <div key={index} className="relative rounded-lg ">
                                 <Image
                                     onClick={() => setSelectedImage(index)}
-                                    src={url}
+                                    // src={url}
+                                    src={`${MEDIA_IMAGE_PATH}${url}`}
                                     width={85}
                                     height={85}
                                     sizes="100vw"
@@ -53,7 +55,8 @@ const ImageGallery: React.FC<ImageGalleryProps> = (props: ImageGalleryProps) => 
             </div>
             <div className="max-h-[600px] flex-1 relative bg-gray-100 rounded-md overflow-hidden">
                 <Image
-                    src={imageUrls[selectedImage]}
+                    // src={imageUrls[selectedImage]}
+                    src={`${MEDIA_IMAGE_PATH}${imageUrls[selectedImage]}`}
                     width={0}
                     height={0}
                     sizes="100vw"

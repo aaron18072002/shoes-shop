@@ -14,6 +14,7 @@ import { resetUser } from '@/redux/slices/userSlice';
 import { AiOutlineUser } from 'react-icons/ai';
 import { useQueryClient } from '@tanstack/react-query';
 import { FaUserCog } from 'react-icons/fa';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 
 // import { QueryCache } from '@tanstack/react-query';
 // import { logout } from '@/apis/users.api';
@@ -50,7 +51,8 @@ const Navbar: React.FC = (props: NavbarProps) => {
                         <Link href="/">
                             <Image
                                 alt="logo"
-                                src="/images/logo.png"
+                                // src="/images/logo.png"
+                                src={`${MEDIA_IMAGE_PATH}cee953f5a0c6d52f03805993a`}
                                 width={30}
                                 height={30}
                                 className="object-cover"

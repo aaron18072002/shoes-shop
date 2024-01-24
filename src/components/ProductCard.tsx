@@ -9,6 +9,7 @@ import { FaHeart, FaEye } from 'react-icons/fa';
 import { BsFillHeartFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { MEDIA_IMAGE_PATH } from '@/constants/common';
 
 interface ProductCardProps {
     title: string;
@@ -32,7 +33,7 @@ interface PromotionData {
 
 const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
     const { title, image, price, id, color, is_discount, promotionId, image2 } = props;
-    const [imageUrl, setImageUrl] = useState<string>(image);
+    const [imageUrl, setImageUrl] = useState<string>(`${MEDIA_IMAGE_PATH}${image}`);
     const [isHovered, setIsHovered] = useState<boolean>(false);
     const [promotionInf, setPromotionInf] = useState<PromotionData>({
         id: 1,
@@ -47,11 +48,12 @@ const ProductCard: React.FC<ProductCardProps> = (props: ProductCardProps) => {
 
     const handleMouseOver = () => {
         setIsHovered(true);
-        setImageUrl(image2 as string);
+        setImageUrl(`${MEDIA_IMAGE_PATH}${image2}`);
     };
     const handleMouseOut = () => {
         setIsHovered(false);
-        setImageUrl(image);
+        // setImageUrl(image);
+        setImageUrl(`${MEDIA_IMAGE_PATH}${image}`);
     };
 
     const handleGetPromotion = useCallback(async (id: number) => {
