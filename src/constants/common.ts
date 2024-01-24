@@ -1,1 +1,1 @@
-export const MEDIA_IMAGE_PATH = 'http://localhost:8000/static/medias/';
+export const MEDIA_IMAGE_PATH = 'https://nta-shoes-shop-api.onrender.com/static/medias/';

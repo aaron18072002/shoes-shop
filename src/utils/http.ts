@@ -4,7 +4,8 @@ class Http {
     instance: AxiosInstance;
     constructor() {
         this.instance = axios.create({
-            baseURL: 'http://localhost:8000/',
+            // baseURL: 'http://localhost:8000/',
+            baseURL: 'https://nta-shoes-shop-api.onrender.com/',
             timeout: 10000,
             headers: {
                 'Content-Type': 'application/json',
@@ -12,7 +13,6 @@ class Http {
         });
     }
 }
-
 
 const http = new Http().instance;
 
